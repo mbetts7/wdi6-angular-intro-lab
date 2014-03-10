@@ -12,9 +12,9 @@
 
 <body>
    <div ng-controller="bookly.BooksController" class="container">
-      <h4>[[ search box and 'order by' drop down go here]]</h4>
+      <h4><input type=" text" ng-model="query" /></h4>
       <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 book" ng-repeat="book in books">
+        <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 book" ng-repeat="book in books | filter:query">
           <div class="col-xs-offset-1 book-title">
             {{book.title}}
           </div>
