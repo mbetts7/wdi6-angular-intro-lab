@@ -6,6 +6,8 @@ bookly.BooksController = function($scope) {
   // load books. They are defined in data.js (we've got no back end yet!)
   $scope.books = books;
   $scope.cartBooks = [];
+  
+  $scope.count = 0;
   $scope.total = 0;
 
   $scope.selects = ['author', 'title', 'price'];
@@ -17,11 +19,23 @@ bookly.BooksController = function($scope) {
       return b.id === index;
     });
 
-    console.log(book.id);
+    if ($scope.cartBooks.indexOf(book) >= 0){
+      book.quantity += 1;
+      $scope.total += book.price;
+      $scope.count += 1;
+    } else {
+      $scope.cartBooks.push(book);
+      console.log($scope.cartBooks);
+      $scope.total += book.price;
+      $scope.count += 1;
+    }
+    console.log($scope.count);
+  };
 
-    $scope.cartBooks.push(book);
-    $scope.total += book.price;
-
+  $scope.emptyCart = function() {
+    $scope.cartBooks = [];
+    $scope.count = 0;
+    $scope.total = 0;
   };
 
 };
