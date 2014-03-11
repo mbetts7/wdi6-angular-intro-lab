@@ -20,10 +20,13 @@ bookly.BooksController = function($scope) {
     });
 
     if ($scope.cartBooks.indexOf(book) >= 0){
+      // 2nd plus times added
       book.quantity += 1;
       $scope.total += book.price;
       $scope.count += 1;
     } else {
+      // 1st add of book
+      book.quantity = 1;
       $scope.cartBooks.push(book);
       console.log($scope.cartBooks);
       $scope.total += book.price;
