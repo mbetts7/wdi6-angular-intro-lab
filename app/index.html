@@ -8,11 +8,11 @@
 
   <link href="main.css" rel="stylesheet" type="text/css" />
   <script src ="data.js"></script>
-  <script src ="books_controller.js"></script>
+  <script src ="books_control.js"></script>
 </head>
 
 <body>
-   <div ng-controller="bookly.BooksController" class="container">
+   <div ng-controller="bookly.BooksControl" class="container">
       <h4><input type=" text" ng-model="query" /></h4>
       <select ng-model="select" ng-options="s for s in selects">Select model</select>
       <div class="row">
